@@ -7,6 +7,7 @@ import { SidePanel, DEFAULT_SECTIONS } from "polotno/side-panel";
 import { Workspace } from "polotno/canvas/workspace";
 import { CustomToolbar } from "./CustomToolbar";
 import { CustomPhotosSection } from "./components/CustomPhotosSection";
+import { CustomTextSection } from "./components/CustomTextSection"; // Add this import
 
 import "@blueprintjs/core/lib/css/blueprint.css";
 
@@ -22,7 +23,10 @@ const page = store.addPage();
 // Define sections to use in SidePanel
 const sections = [
   CustomPhotosSection,
-  ...DEFAULT_SECTIONS.filter((section) => section.name !== "photos"),
+  CustomTextSection, 
+  ...DEFAULT_SECTIONS.filter(
+    (section) => section.name !== "photos" && section.name !== "text"
+  ),
 ];
 
 export const App = ({ store }) => {
